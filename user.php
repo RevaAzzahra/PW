@@ -30,10 +30,11 @@ class User
 
         $result = $this->conn->query($sql);
 
-        if(!$result->num_rows == 0){
-            return false;
+        if ($result->num_rows > 0) {
+        return true;    // user ditemukan
+        } else {
+        return false;   // user tidak ditemukan
         }
-        return true;
     }
     
     public function getAllUsers()

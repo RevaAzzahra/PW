@@ -8,10 +8,17 @@ $user = new User($conn);
 
 $result = $user->getAllUsers();
 $daftar_user = $result->fetch_all(MYSQLI_ASSOC);
+
+$username = $_SESSION['username'] ?? '';
+$jumlah_login = $_COOKIE['jumlah_login'] ?? 1;
 ?>
  <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
         <h1 class="mt-4">Daftar User</h1>
         <hr />
+        <div class="alert alert-success">
+        Selamat Datang <?php echo $username; ?>
+        Anda telah login sebanyak <?php echo $jumlah_login; ?> kali
+        </div>
         <a href= "index.php?halaman=tambah_user_form.php"
         class="btn btn-primary mb-3">Tambah User</a>
         <div class="table-responsive small">
